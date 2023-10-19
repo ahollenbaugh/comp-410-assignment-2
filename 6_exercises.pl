@@ -13,6 +13,10 @@
 % and Celsius, respectively
 
 % ---REPLACE ME WITH CODE---
+f_to_c(F, C):-
+    CONSTANT is 5 / 9,
+    FMINUS32 is F - 32,
+    C is CONSTANT * FMINUS32.
 
 % With your conversion routine in hand, the following queries should
 % all succeed:
