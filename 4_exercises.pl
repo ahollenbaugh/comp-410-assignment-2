@@ -39,16 +39,16 @@ harder(d,2).
 % ANSWER: (X = a, Y = 1), (X = a, Y = 2), (X = b, Y = 3), (X = c, Y = 3), (X = a, Y = 3)
 
 % QUERY: gizmo(a,X), easy(X).
-% ANSWER: ???
+% ANSWER: X = 1, X = 2, X = 3
 
 % QUERY: gizmo(c,X), easy(X).
-% ANSWER: ???
+% ANSWER: X = 3
 
 % QUERY: gizmo(d,Z), easy(Z).
-% ANSWER: ???
+% ANSWER: false
 
-% QUERY: easy(X), harder(Y,X).
-% ANSWER: ???
+% QUERY: easy(X), harder(Y,X). 
+% ANSWER: (Y = a, X = 1), (Y = c, X = 1), (Y = d, X = 2), (Y = c, X = 2), (Y = c, X = 3)
 
 % QUERY: harder(Y,X), easy(X).
-% ANSWER: ???
+% ANSWER: (y = a, x = 1), (y = c, x = 1), (y = c, x = 2), (y = c, x = 3), (y = d, x = 2)
