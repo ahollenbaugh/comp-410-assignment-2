@@ -10,24 +10,33 @@
 % Consider the following Prolog logicbase:
 
 a(a1,1).
-a(A,2).
+a(A,2). % if A is either a1 or a3 or anything else, then 2 is also a possible answer.
 a(a3,N).
 
 b(1,b1).
 b(2,B).
-b(N,b3).
+b(N,b3). % if N == 1 or 2 or anything else, b3 is also a possible answer.
 
 c(X,Y) :- 
         a(X,N),
-        b(N,Y).
+        b(N,Y),
+        writeln(X),
+        writeln(N),
+        writeln(Y).
 
 d(X,Y) :- 
         a(X,N),
-        b(Y,N).
+        b(Y,N),
+        writeln(X),
+        writeln(N),
+        writeln(Y).
 
 d(X,Y) :- 
         a(N,X),
-        b(N,Y).
+        b(N,Y),
+        writeln(X),
+        writeln(N),
+        writeln(Y).
 
 % Write out whether or not the following queries are true or
 % false, replacing `???` where appropriate.
@@ -45,20 +54,20 @@ d(X,Y) :-
 % ANSWER: (X = a1, Y = b1), (X = a1, Y = b3), true, Y = b3, (X = a3, Y = b1), X = a3, (X = a3, Y = b3)
 
 % QUERY: b(X,kalamazoo).
-% ANSWER: ???
+% ANSWER: X = 2
 
 % QUERY: c(X,b3).
-% ANSWER: ???
+% ANSWER: X = a1, true, true, X = a3
 
 % QUERY: c(A, B).
-% ANSWER: ???
+% ANSWER: (A = a1, B = b1), (A = a1, B = b3), true, B = b3, (A = a3, B = b1), A = a3, (A = a3, B = b3)
 
 % QUERY: c(X, X).
-% ANSWER: ???
+% ANSWER: true, X = b3, X = a3
 
 % QUERY: d(X, Y).
-% ANSWER: ???
+% ANSWER: (X = a1, Y = 2), Y = 2, (X = a3, Y = 1), (X = a3, Y = 2), X = a3, (X = 1, Y = b3), (X = 2, Y = b1), X = 2, (X = 2, Y = b3), Y = b3
 
 % QUERY: d(X, X).
-% ANSWER: ???
+% ANSWER: X = 2, X = a3, X = 2, X = b3
 
